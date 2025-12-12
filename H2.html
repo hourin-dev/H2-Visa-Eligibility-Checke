@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-2 비자 자격 진단</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🇰🇷 H-2 비자 자격 진단</h1>
+        <p class="description">재외동포 방문취업(H-2) 비자 취득 기본 자격 요건을 확인합니다. 각 항목을 체크하세요.</p>
+        
+        <form id="visa-check-form">
+            <section class="input-section">
+                <h2>필수 기본 요건</h2>
+
+                <div class="input-group">
+                    <label for="nationality">1. 국적 (H-2 대상국: 중국/구소련 지역)</label>
+                    <input type="text" id="nationality" required placeholder="예: 중국">
+                    <p class="guidance" id="guide-nationality"></p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="age">2. 연령 (만 18세 이상)</label>
+                    <input type="number" id="age" required placeholder="나이 입력">
+                    <p class="guidance" id="guide-age"></p>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="is_dongpo_proven">
+                    <label for="is_dongpo_proven">3. 동포 입증 서류 소지</label>
+                    <p class="guidance" id="guide-dongpo"></p>
+                </div>
+            </section>
+
+            <section class="input-section">
+                <h2>결격 및 주의 요건</h2>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="has_serious_crime">
+                    <label for="has_serious_crime">4. 중대 범죄 이력 (살인, 마약 등)</label>
+                    <p class="guidance" id="guide-crime"></p>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="has_immigration_violation">
+                    <label for="has_immigration_violation">5. 출입국관리법 위반 이력 (강제퇴거/출국명령)</label>
+                    <p class="guidance" id="guide-violation"></p>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="has_foreign_reg_card">
+                    <label for="has_foreign_reg_card">6. 국내 외국인등록증 소지</label>
+                    <p class="guidance" id="guide-regcard"></p>
+                </div>
+            </section>
+
+            <button type="submit" id="check-button">✅ 최종 적격 여부 확인</button>
+        </form>
+        
+        <section id="result-area" class="result-area hidden">
+            <h2>📊 진단 결과</h2>
+            <p id="final-status" class="status-message"></p>
+            <div id="reasons-list"></div>
+
+            <div id="required-info" class="hidden">
+                <h3>📌 필수 서류 안내</h3>
+                <ul id="documents-list"></ul>
+                
+                <h3>📋 필요 절차 안내</h3>
+                <ol id="procedures-list"></ol>
+            </div>
+            
+            <button id="reset-button" class="reset-button">🔄 새로 입력하기</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
